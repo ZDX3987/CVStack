@@ -1,5 +1,4 @@
-const {app, Tray, Menu, BrowserWindow, ipcMain, BaseWindow, screen} = require('electron')
-const path = require('node:path')
+const {app, globalShortcut} = require('electron')
 const createTray = require('./src/main/tray')
 const createMainWindow = require('./src/main/mainWindow')
 

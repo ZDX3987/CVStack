@@ -1,16 +1,16 @@
-const {app, BaseWindow, screen} = require('electron')
+const {BrowserWindow, screen} = require('electron')
 
 const createMainWindow = () => {
     const primaryDisplay = screen.getPrimaryDisplay()
     const {width, height} = primaryDisplay.workAreaSize
-    const mainWindow = new BaseWindow({
+    const mainWindow = new BrowserWindow({
         width: 300,
         height: 600,
         x: width - 350,
         y: height - 600,
         icon: 'assert/image/secondicon.png',
         title: 'CVStack',
-        transparent: true,
+        // transparent: true,
         maximizable: false,
         minimizable: false,
         movable: true,
@@ -20,8 +20,9 @@ const createMainWindow = () => {
     mainWindow.setMenuBarVisibility(false)
     mainWindow.on('blur', (e) => {
         console.log('mainWindow hide...')
-        mainWindow.hide()
+        // mainWindow.hide()
     })
+    mainWindow.loadFile('index.html')
     return mainWindow
 }
 
