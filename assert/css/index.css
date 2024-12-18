@@ -1,5 +1,32 @@
+html,body {
+}
+.app-content {
+    width: 100%;
+    height: 94vh;
+    overflow: hidden;
+}
+.app-title {
+    color: #55bd66;
+    text-align: center;
+    height: 10vh;
+}
+#clipboard-stack {
+    padding-left: 0;
+    min-height: 80vh;
+}
 #clipboard-stack li {
     list-style: none;
     font-size: 14px;
-    white-space: pre-wrap;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    margin: 10px 0;
+    padding: 10px 5px;
+    color: #e7e7e7;
+    background-color: rgba(79, 79, 79, 0.3);
+    box-shadow: rgb(79,79,79) 0px 0px 2px;
+    border-radius: 5px;
+    & * {
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+    }
 }

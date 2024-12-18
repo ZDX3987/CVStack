@@ -16,6 +16,9 @@ const createMainWindow = () => {
         minimizable: false,
         movable: true,
         skipTaskbar: true,
+        transparent: true,
+        frame: false,
+        backgroundColor: 'rgba(22, 22, 22, 0.8)',
         webPreferences: {
             nodeIntegration: false, // 关闭 nodeIntegration
             contextIsolation: true, // 启用 contextIsolation
@@ -24,12 +27,13 @@ const createMainWindow = () => {
     })
     mainWindow.setVibrancy('light')
     mainWindow.setMenuBarVisibility(false)
+    mainWindow.setHasShadow(true)
     mainWindow.on('blur', (e) => {
         console.log('mainWindow hide...')
         // mainWindow.hide()
     })
     mainWindow.loadFile('index.html')
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
     mainWindow.webContents.send('main-window-loaded', 'Hello CVStack')
     return mainWindow
 }
