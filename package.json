@@ -23,6 +23,7 @@
     "electron": "^33.2.1"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "electron-store": "^10.0.0"
   }
 }

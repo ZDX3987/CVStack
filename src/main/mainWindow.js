@@ -33,7 +33,7 @@ const createMainWindow = () => {
         // mainWindow.hide()
     })
     mainWindow.loadFile('index.html')
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
     mainWindow.webContents.send('main-window-loaded', 'Hello CVStack')
     return mainWindow
 }
