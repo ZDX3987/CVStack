@@ -1,6 +1,4 @@
 const {Tray, Menu} = require('electron')
-const {Store} = require('electron-store')
-const store = new Store()
 
 const createTray = (mainWindow) => {
     const tray = new Tray('assert/image/secondicon.png')
