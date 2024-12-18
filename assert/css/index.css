@@ -1,0 +1,5 @@
+#clipboard-stack li {
+    list-style: none;
+    font-size: 14px;
+    white-space: pre-wrap;
+}

@@ -4,7 +4,7 @@ let lastClipboardText = null
 
 const createInterval = (mainWindow) => {
     setInterval(() => {
-        let text = clipboard.readText()
+        let text = clipboard.readHTML()
         if (text === lastClipboardText) {
             return
         }
