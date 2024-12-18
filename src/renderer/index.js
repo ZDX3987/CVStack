@@ -1,8 +1,9 @@
-const {clipboard} = require('electron')
-const clipboardStack = document.getElementById('clipboard-stack')
+const {ipcRenderer} = require('electron')
 
-setInterval(() => {
-    let text = clipboard.readText()
-    console.log('text: ', text)
-    clipboardStack.innerHTML = `<li>${text}</li>`
-}, 1000)
+const createListener = () => {
+    ipcRenderer.on('clipboard-event', (event, text) => {
+        console.log('event: '+ text)
+    })
+}
+
+module.exports = createListener

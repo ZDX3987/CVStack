@@ -1,3 +1,7 @@
 const clipboardStack = document.getElementById('clipboard-stack')
 
-clipboardStack.innerHTML = `<li>${versions.node()}</li><li>${versions.chrome()}</li><li>${versions.electron()}</li>`
+window.commonEvent.clipboardEvent((event, text) => {
+    console.log('event: ' + text)
+    clipboardStack.innerHTML = `<li>${text}</li>`
+})
+

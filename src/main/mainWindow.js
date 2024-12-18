@@ -1,4 +1,5 @@
 const {BrowserWindow, screen} = require('electron')
+const path = require('node:path')
 
 const createMainWindow = () => {
     const primaryDisplay = screen.getPrimaryDisplay()
@@ -14,7 +15,12 @@ const createMainWindow = () => {
         maximizable: false,
         minimizable: false,
         movable: true,
-        skipTaskbar: true
+        skipTaskbar: true,
+        webPreferences: {
+            nodeIntegration: false, // 关闭 nodeIntegration
+            contextIsolation: true, // 启用 contextIsolation
+            preload: path.join(__dirname, '../..', 'preload.js'), // 指定 preload.js 的路径
+        }
     })
     mainWindow.setVibrancy('light')
     mainWindow.setMenuBarVisibility(false)
@@ -23,6 +29,8 @@ const createMainWindow = () => {
         // mainWindow.hide()
     })
     mainWindow.loadFile('index.html')
+    mainWindow.webContents.openDevTools()
+    mainWindow.webContents.send('main-window-loaded', 'Hello CVStack')
     return mainWindow
 }
 
